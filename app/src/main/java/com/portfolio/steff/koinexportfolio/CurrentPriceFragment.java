@@ -18,6 +18,9 @@ import org.springframework.web.client.RestTemplate;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * Created by steff on 28-Dec-17.
+ */
 public class CurrentPriceFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.swipe_container)

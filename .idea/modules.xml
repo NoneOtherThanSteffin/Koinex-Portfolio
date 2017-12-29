@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KoinexPortfolio.iml" filepath="$PROJECT_DIR$/KoinexPortfolio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Koinex-Portfolio.iml" filepath="$PROJECT_DIR$/Koinex-Portfolio.iml" />
+      <module fileurl="file://D:\Android\AndroidWorkSpace\Koinex-Portfolio\KoinexPortfolio.iml" filepath="D:\Android\AndroidWorkSpace\Koinex-Portfolio\KoinexPortfolio.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\Android\AndroidWorkSpace\Koinex-Portfolio\app\app.iml" filepath="D:\Android\AndroidWorkSpace\Koinex-Portfolio\app\app.iml" />
     </modules>
   </component>
 </project>

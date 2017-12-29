@@ -18,6 +18,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by steff on 28-Dec-17.
+ */
 public class PortfolioFragment extends Fragment {
 
     private static final String TAG = PortfolioFragment.class.getSimpleName();

@@ -5,6 +5,7 @@ import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,7 +30,9 @@ import java.util.concurrent.ExecutionException;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
+/**
+ * Created by steff on 28-Dec-17.
+ */
 public class AllSavedPortfoliosFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, View.OnClickListener {
     @BindView(R.id.linearlayout)
     LinearLayout linearLayout;
@@ -98,7 +101,7 @@ public class AllSavedPortfoliosFragment extends Fragment implements SwipeRefresh
                 AppDatabase.class, "portfolio-database").build();
         List<Portfolio> portfolioList = null;
         try {
-            portfolioList = new getData().execute(db).get();
+            portfolioList = new PopulateData().execute(db).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -112,7 +115,7 @@ public class AllSavedPortfoliosFragment extends Fragment implements SwipeRefresh
     }
 
 
-    private class getData extends AsyncTask<AppDatabase, Void, List<Portfolio>> {
+    private class PopulateData extends AsyncTask<AppDatabase, Void, List<Portfolio>> {
         private AppDatabase appDatabase;
 
         @Override
@@ -180,6 +183,8 @@ public class AllSavedPortfoliosFragment extends Fragment implements SwipeRefresh
         @Override
         protected Void doInBackground(AppDatabase... appDatabases) {
             appDatabases[0].portfolioDao().deletePortfolios(getPortfolio);
+            Snackbar.make(inflatedView, "Deleted Data : " + getPortfolio.toString(), Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
             return null;
         }
 
