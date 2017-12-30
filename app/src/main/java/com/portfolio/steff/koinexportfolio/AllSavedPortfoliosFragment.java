@@ -40,27 +40,6 @@ public class AllSavedPortfoliosFragment extends Fragment implements SwipeRefresh
     @BindView(R.id.swipe_container_saved_portfolios)
     SwipeRefreshLayout swipeRefreshLayout;
 
-    @BindView(R.id.textViewBitcoin)
-    TextView textViewBitcoin;
-
-    @BindView(R.id.textViewEthereum)
-    TextView textViewEthereum;
-
-    @BindView(R.id.textViewIota)
-    TextView textViewIota;
-
-    @BindView(R.id.textViewRipple)
-    TextView textViewRipple;
-
-    @BindView(R.id.imageViewDelete)
-    ImageView imageViewDelete;
-
-    @BindView(R.id.tableRowPortfolio)
-    TableRow tableRowPortfolio;
-
-    @BindView(R.id.tableLayoutPortfolio)
-    TableLayout tableLayoutPortfolio;
-
     View inflatedView;
 
     Portfolio getPortfolio;
@@ -128,15 +107,9 @@ public class AllSavedPortfoliosFragment extends Fragment implements SwipeRefresh
         @Override
         protected void onPostExecute(List<Portfolio> portfolios) {
             int count = 0;
+            TableLayout mHeadingTableLayout = (TableLayout) inflatedView.findViewById(R.id.headingtablelayout);
             linearLayout.removeAllViews();
-            Result result = null;
-//            try {
-//                result = new HttpRequestTask().execute().get();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            } catch (ExecutionException e) {
-//                e.printStackTrace();
-//            }
+            linearLayout.addView(mHeadingTableLayout);
 
             for (final Portfolio mPortfolio : portfolios) {
                 LinearLayout linearLayout = (LinearLayout) inflatedView.findViewById(R.id.linearlayout);
