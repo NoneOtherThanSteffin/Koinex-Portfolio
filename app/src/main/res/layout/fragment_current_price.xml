@@ -45,7 +45,7 @@
                     android:paddingLeft="@dimen/margin_small"
                     android:paddingRight="@dimen/margin_small"
                     android:paddingTop="@dimen/margin_small"
-                    android:src="@drawable/ripple" />
+                    android:src="@drawable/ic_ripple" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -98,7 +98,7 @@
                     android:paddingLeft="@dimen/margin_small"
                     android:paddingRight="@dimen/margin_small"
                     android:paddingTop="@dimen/margin_small"
-                    android:src="@drawable/iota" />
+                    android:src="@drawable/ic_iota" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -205,7 +205,7 @@
                     android:paddingLeft="@dimen/margin_small"
                     android:paddingRight="@dimen/margin_small"
                     android:paddingTop="@dimen/margin_small"
-                    android:src="@drawable/ethereum" />
+                    android:src="@drawable/ic_ethereum" />
 
                 <TextView
                     android:layout_width="match_parent"

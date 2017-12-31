@@ -134,14 +134,14 @@
 //                Double total = null;
 //                if (result != null) {
 //                    total = (mPortfolio.ripple * Double.valueOf(result.getPrices().getXRP()))
-//                            + (mPortfolio.iota * Double.valueOf(result.getPrices().getMIOTA()))
+//                            + (mPortfolio.ic_iota * Double.valueOf(result.getPrices().getMIOTA()))
 //                            + (mPortfolio.ethereum * Double.valueOf(result.getPrices().getETH()))
 //                            + (mPortfolio.bitcoin * Double.valueOf(result.getPrices().getBTC()));
 //                }
 //
-//                tv.setText("Ripple : " + mPortfolio.ripple +" - "+(mPortfolio.ripple * Double.valueOf(result.getPrices().getXRP())) + "\n" +
-//                        "IOTA : " + mPortfolio.iota +" - "+(mPortfolio.iota * Double.valueOf(result.getPrices().getMIOTA())) + "\n" +
-//                        "Ethereum : " + mPortfolio.ethereum+" - "+(mPortfolio.ethereum * Double.valueOf(result.getPrices().getETH())) + "\n" +
+//                tv.setText("Ripple : " + mPortfolio.ic_ripple +" - "+(mPortfolio.ic_ripple * Double.valueOf(result.getPrices().getXRP())) + "\n" +
+//                        "IOTA : " + mPortfolio.ic_iota +" - "+(mPortfolio.ic_iota * Double.valueOf(result.getPrices().getMIOTA())) + "\n" +
+//                        "Ethereum : " + mPortfolio.ic_ethereum+" - "+(mPortfolio.ic_ethereum * Double.valueOf(result.getPrices().getETH())) + "\n" +
 //                        "Bitcoin : " + mPortfolio.bitcoin +" - "+(mPortfolio.bitcoin * Double.valueOf(result.getPrices().getBTC())) + "\n" +
 //                        "Total : " + total);
 //                tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);

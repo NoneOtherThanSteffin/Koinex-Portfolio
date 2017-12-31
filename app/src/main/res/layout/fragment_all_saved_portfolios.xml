@@ -60,7 +60,7 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/dustbin"
+                        android:src="@drawable/ic_dustbin"
                         android:visibility="invisible" />
                 </TableRow>
 

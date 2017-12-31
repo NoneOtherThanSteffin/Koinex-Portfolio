@@ -13,7 +13,7 @@
         <TextView
             android:id="@+id/textViewBitcoin"
             android:layout_width="50dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="5dp"
             android:text="@string/bitcoin" />
@@ -21,7 +21,7 @@
         <TextView
             android:id="@+id/textViewEthereum"
             android:layout_width="50dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="5dp"
             android:text="@string/ethereum" />
@@ -29,7 +29,7 @@
         <TextView
             android:id="@+id/textViewIota"
             android:layout_width="50dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="5dp"
             android:text="@string/iota" />
@@ -37,7 +37,7 @@
         <TextView
             android:id="@+id/textViewRipple"
             android:layout_width="50dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="5dp"
             android:text="@string/ripple" />
@@ -46,7 +46,20 @@
             android:id="@+id/imageViewDelete"
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:src="@drawable/dustbin" />
+            android:src="@drawable/ic_dustbin" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRowPortfolioTotal"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/textViewPortfolioTotal"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="@string/total" />
     </TableRow>
 
 </TableLayout>

@@ -28,4 +28,5 @@
     <string name="iota">IOTA</string>
     <string name="ripple">Ripple</string>
     <string name="delete">Delete</string>
+    <string name="total">Total Portfolio Value : </string>
 </resources>

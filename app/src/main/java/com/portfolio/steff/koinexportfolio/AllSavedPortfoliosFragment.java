@@ -110,39 +110,71 @@ public class AllSavedPortfoliosFragment extends Fragment implements SwipeRefresh
             TableLayout mHeadingTableLayout = (TableLayout) inflatedView.findViewById(R.id.headingtablelayout);
             linearLayout.removeAllViews();
             linearLayout.addView(mHeadingTableLayout);
+            Result result = null;
+            try {
+                result = new HttpRequestTask().execute().get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
 
             for (final Portfolio mPortfolio : portfolios) {
                 LinearLayout linearLayout = (LinearLayout) inflatedView.findViewById(R.id.linearlayout);
                 LayoutInflater inflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 final TableLayout tableView = (TableLayout) inflater.inflate(R.layout.tablelayout, null);
                 tableView.setId(mPortfolio.id);
-                final TableRow tableRow = (TableRow) tableView.getChildAt(0);
-                TextView coin = (TextView) tableRow.getChildAt(0);
-                coin.setText(String.valueOf(mPortfolio.bitcoin));
-                coin = (TextView) (TextView) tableRow.getChildAt(1);
-                coin.setText(String.valueOf(mPortfolio.ethereum));
-                coin = (TextView) (TextView) tableRow.getChildAt(2);
-                coin.setText(String.valueOf(mPortfolio.iota));
-                coin = (TextView) (TextView) tableRow.getChildAt(3);
-                coin.setText(String.valueOf(mPortfolio.ripple));
-                ImageView coinImageView = (ImageView) tableRow.getChildAt(4);
-                coinImageView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        portFolioId = mPortfolio.id;
-                        try {
-                            getPortfolio = new GetData().execute(appDatabase).get();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        } catch (ExecutionException e) {
-                            e.printStackTrace();
-                        }
-                        new DeleteData().execute(appDatabase);
-                        tableView.setVisibility(View.GONE);
+                if (result != null) {
 
-                    }
-                });
-                linearLayout.addView(tableView);
+                    Double ethereumValue = mPortfolio.ethereum * Double.valueOf(result.getPrices().getETH());
+                    Double iotaValue = mPortfolio.iota * Double.valueOf(result.getPrices().getMIOTA());
+                    Double rippleValue = mPortfolio.ripple * Double.valueOf(result.getPrices().getXRP());
+                    Double bitcoinValue = mPortfolio.bitcoin * Double.valueOf(result.getPrices().getBTC());
+
+                    final TableRow tableRow = (TableRow) tableView.getChildAt(0);
+                    TextView coin = (TextView) tableRow.getChildAt(0);
+                    coin.setText(String.valueOf(mPortfolio.bitcoin) + "\n" + "Value:" + "\n" + bitcoinValue);
+                    coin = (TextView) (TextView) tableRow.getChildAt(1);
+                    coin.setText(String.valueOf(mPortfolio.ethereum) + "\n" + "Value:" + "\n" + ethereumValue);
+                    coin = (TextView) (TextView) tableRow.getChildAt(2);
+                    coin.setText(String.valueOf(mPortfolio.iota) + "\n" + "Value:" + "\n" + iotaValue);
+                    coin = (TextView) (TextView) tableRow.getChildAt(3);
+                    coin.setText(String.valueOf(mPortfolio.ripple) + "\n" + "Value:" + "\n" + rippleValue);
+                    ImageView coinImageView = (ImageView) tableRow.getChildAt(4);
+                    coinImageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            portFolioId = mPortfolio.id;
+                            try {
+                                getPortfolio = new GetData().execute(appDatabase).get();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            } catch (ExecutionException e) {
+                                e.printStackTrace();
+                            }
+                            new DeleteData().execute(appDatabase);
+                            tableView.setVisibility(View.GONE);
+
+                        }
+                    });
+                    final TableRow tableRowTotal = (TableRow) tableView.getChildAt(1);
+                    TextView totalCoinValue = (TextView) tableRowTotal.getChildAt(0);
+                    Double TotalValue = ethereumValue + iotaValue + rippleValue + bitcoinValue;
+                    totalCoinValue.setText("Total Portfolio Value : " + TotalValue);
+                    linearLayout.addView(tableView);
+                } else {
+                    final TableRow tableRow = (TableRow) tableView.getChildAt(0);
+                    TextView coin = (TextView) tableRow.getChildAt(0);
+                    coin.setText("Exception Occurred");
+                    coin = (TextView) (TextView) tableRow.getChildAt(1);
+                    coin.setText("Exception Occurred");
+                    coin = (TextView) (TextView) tableRow.getChildAt(2);
+                    coin.setText("Exception Occurred");
+                    coin = (TextView) (TextView) tableRow.getChildAt(3);
+                    coin.setText("Exception Occurred");
+                    linearLayout.addView(tableView);
+                }
+
             }
 
             if (swipeRefreshLayout.isRefreshing()) {

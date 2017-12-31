@@ -33,10 +33,10 @@ public class Portfolio implements Serializable {
     @Override
     public String toString() {
         return "Portfolio{" +
-                ", ripple=" + ripple +
-                ", iota=" + iota +
+                ", ic_ripple=" + ripple +
+                ", ic_iota=" + iota +
                 ", bitcoin=" + bitcoin +
-                ", ethereum=" + ethereum +
+                ", ic_ethereum=" + ethereum +
                 '}';
     }
 }
